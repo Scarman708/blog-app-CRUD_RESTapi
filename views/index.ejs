@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <ul class="topnav">
+        <div class="nav">
+        <li><a class="active" href="http://localhost:3030/post">Blog app REST api</a></li>
+        <li><a href="http://localhost:3030/post/create">Create Post</a></li>
+    </div>
+      </ul>
+
+    
+    <div class="blog-container">
+        <% blogPosts.forEach(function(post) { %>
+            <a href="http://localhost:3030/post/<%= post.uuid %>" class="blog-card-link">
+                <div class="blog-card">
+                    <img src="<%= post.image %>" alt="<%= post.title %>">
+                    <div class="blog-content">
+                        <h2><%= post.title %></h2>
+                        <p class="blog-username"><%= post.username %></p>
+                        <p class="blog-excerpt"><%= post.content %></p>
+                        <a href="/post/edit/<%= post.uuid %>" class="create-btn">
+                            <button>Edit Post</button>
+                        </a>
+                        <form method="post" action="post/<%= post.uuid %>?_method=delete">
+                            <button class="card-button">delete post</button>
+                        </form>
+                    </div>
+                </div>
+            </a>
+        <% }); %>
+    </div>
+</body>
+</html>
+
+</body>
+</html>
